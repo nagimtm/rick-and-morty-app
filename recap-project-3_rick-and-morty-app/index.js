@@ -1,5 +1,4 @@
 import { createCharacterCard } from "./components/card/card.js";
-// import { characterName } from "./components/search-bar/search-bar.js";
 import { createButton } from "./components/nav-button/nav-button.js";
 
 const searchBarContainer = document.querySelector(
@@ -22,9 +21,8 @@ pagination.innerHTML = `${page} / ${maxPage}`;
 
 let searchQuery = "";
 
-export async function fetchCharacters(searchQuery) {
+export async function fetchCharacters(page = 1, searchQuery = "") {
   try {
-    // console.log(searchQuery);
     const response = await fetch(
       `https://rickandmortyapi.com/api/character?page=${page}&name=${searchQuery}`
     );
@@ -38,6 +36,7 @@ export async function fetchCharacters(searchQuery) {
         .join("");
       cardContainer.innerHTML = characterCards;
     } else {
+      cardContainer.innerHTML = "woops, not found";
       console.log("Bad response!");
     }
   } catch (e) {
@@ -49,7 +48,7 @@ searchBar.addEventListener("submit", (event) => {
   event.preventDefault();
   searchQuery = event.target.query.value;
   console.log("searchQuery", searchQuery);
-  fetchCharacters(searchQuery);
+  fetchCharacters(page, searchQuery);
 });
 
 const prevButton = createButton("previous", "button--prev", decrementPage);
@@ -69,7 +68,7 @@ function incrementPage() {
   }
   // page < 42 ? (nextButton.disabled = false) : (nextButton.disabled = true);
   cardContainer.innerHTML = "";
-  fetchCharacters(searchQuery);
+  fetchCharacters(page, searchQuery);
   pagination.innerHTML = `${page} / ${maxPage}`;
 }
 
@@ -82,9 +81,9 @@ function decrementPage() {
     nextButton.disabled = false;
   }
 
-  // page === 1 ? (prevButton.disabled = true) : (prevButton.disabled = false);
   cardContainer.innerHTML = "";
-  fetchCharacters(searchQuery);
+  fetchCharacters(page, searchQuery);
   pagination.innerHTML = `${page} / ${maxPage}`;
 }
-fetchCharacters(searchQuery);
+
+fetchCharacters(page, searchQuery);
