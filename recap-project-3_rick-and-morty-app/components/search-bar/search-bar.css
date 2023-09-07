@@ -1,5 +1,9 @@
 .search-bar-container {
-  width: 300px;
+  width: 40vw;
+  align-self: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: -3px 3px;
 }
 
 .search-bar {
@@ -7,12 +11,16 @@
   background-color: var(--color-secondary);
   display: grid;
   grid-template-columns: 1fr 24px;
+  border-radius: 10px;
 }
 
 .search-bar__input {
   background-color: transparent;
   border: none;
+  /* border-radius: 10px; */
   color: var(--color-primary);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1rem;
 }
 
 .search-bar__button {

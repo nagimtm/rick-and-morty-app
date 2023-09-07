@@ -1,10 +1,15 @@
 .navigation {
+  margin-top: 10px;
   height: 30px;
+  /* width: 70vw; */
   display: grid;
   grid-template-columns: 100px 100px 100px;
+  align-items: center;
+  justify-content: center;
 }
 
 .navigation__pagination {
   display: grid;
   place-items: center;
+  margin-left: 2vw;
 }

@@ -1,7 +1,18 @@
 .button {
   border: none;
+  align-items: center;
+  width: 10vw;
+  height: 5vh;
+  border-radius: 30px;
+  border: 2px solid black;
+  box-shadow: -3px 3px 3px 2px;
+  background-color: black;
+  color: white;
+  font-style: oblique;
+  font-weight: 900;
 }
 
 .button:hover {
   background-color: var(--color-secondary);
+  color: black;
 }

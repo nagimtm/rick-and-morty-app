@@ -19,6 +19,9 @@ body {
   font-family: var(--font-family);
   color: var(--color-primary);
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #add8e6;
 }
 
 main {
@@ -29,4 +32,9 @@ main {
 
 .title {
   padding: 10px 0;
+  align-self: center;
+  text-shadow: 3px 3px white;
+  font-weight: 900;
+  color: darkblack;
+  font-size: 4rem;
 }
