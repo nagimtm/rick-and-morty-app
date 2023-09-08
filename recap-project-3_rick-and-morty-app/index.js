@@ -15,9 +15,8 @@ const navigation = document.querySelector('[data-js="navigation"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
-export const maxPage = 42;
-export let page = 1;
-pagination.innerHTML = `${page} / ${maxPage}`;
+let page = 1;
+// pagination.innerHTML = `${page} / ${maxPage}`;
 
 let searchQuery = "";
 
@@ -28,6 +27,8 @@ export async function fetchCharacters(page = 1, searchQuery = "") {
     );
     if (response.ok) {
       const data = await response.json();
+      let maxPage = data.info.pages;
+      pagination.innerHTML = `${page} / ${maxPage}`;
       const characters = data.results;
       const characterCards = characters
         .map((character) => {
@@ -63,7 +64,7 @@ navigation.append(prevButton);
 navigation.append(pagination);
 navigation.append(nextButton);
 
-function incrementPage() {
+function incrementPage(page) {
   page++;
   if (page === 42) {
     nextButton.disabled = true;
@@ -77,7 +78,7 @@ function incrementPage() {
   pagination.innerHTML = `${page} / ${maxPage}`;
 }
 
-function decrementPage() {
+function decrementPage(page) {
   page--;
   if (page === 1) {
     prevButton.disabled = true;
