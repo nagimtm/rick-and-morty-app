@@ -38,10 +38,11 @@ export async function fetchCharacters(page = 1, searchQuery = "") {
     } else {
       cardContainer.innerHTML = `
       <li class="card-not-found">
-        <iframe src="https://giphy.com/embed/dsWOUTBz5aae8ET8Ss" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/afassoftware-oh-whoops-404-dsWOUTBz5aae8ET8Ss"></a></p>
+        <img src="./assets/notfound.gif" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen><p></p>
         </li>`;
 
       console.log("Bad response!");
+      // <iframe src="https://giphy.com/embed/dsWOUTBz5aae8ET8Ss" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
     }
   } catch (e) {
     console.error(e);
