@@ -36,7 +36,11 @@ export async function fetchCharacters(page = 1, searchQuery = "") {
         .join("");
       cardContainer.innerHTML = characterCards;
     } else {
-      cardContainer.innerHTML = "woops, not found";
+      cardContainer.innerHTML = `
+      <li class="card-not-found">
+        <iframe src="https://giphy.com/embed/dsWOUTBz5aae8ET8Ss" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/afassoftware-oh-whoops-404-dsWOUTBz5aae8ET8Ss"></a></p>
+        </li>`;
+
       console.log("Bad response!");
     }
   } catch (e) {
